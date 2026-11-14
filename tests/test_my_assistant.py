@@ -1,6 +1,7 @@
 # tests/test_my_assistant.py
 # Author: Mahendra Prashad
 
+from mock_model import MockModel
 from my_assistant import ServiceAssistant
 from my_tool import AppointmentLookup
 
@@ -13,7 +14,8 @@ def make_assistant():
         "Friday": ["8:30 AM", "1:00 PM"],
     }
     tool = AppointmentLookup(appointments)
-    return ServiceAssistant("Alex", "Be friendly.", tool)
+    return ServiceAssistant("Alex", "Be friendly.", tool, MockModel())
+
 
 
 def test_appointment_lookup():
